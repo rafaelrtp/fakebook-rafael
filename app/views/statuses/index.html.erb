@@ -1,4 +1,4 @@
-<h1>Listing statuses</h1>
+<!-- <h1>Listing statuses</h1>
 
 <table>
   <tr>
@@ -21,3 +21,48 @@
 <br />
 
 <%= link_to 'New Status', new_status_path %>
+
+-->
+
+<div class="welcome-box">
+  <a href="/news-feed"></a>
+  <div class="user-avatar">
+    <div class="user-avatar-inner">
+      <img width="40" height="40" src="/assets/user-chuck.jpg" />
+    </div>
+  </div>
+  <div class="user-name">
+    Chuck Norris
+  </div>
+</div>
+<div class="box">
+	<%= link_to 'Atualizar Status', new_status_path, class: 'button' %>
+  <div class="box-content">
+    <div class="list-view ui-comments-list">
+      <ul>
+		<% @statuses.each do |status| %>
+        <li>
+          <div class="item-image usuario">
+            <span class="item-image-wrap"><img width="40" height="40" src="/assets/user-chuck.jpg" /></span>
+          </div>
+          <div class="item-info">
+            <div class="item-activity">
+              <div class="user-name">
+                <a href="/profile">Chuck Norris</a>
+              </div>
+              <div class="user-comment">
+                  <%= simple_format(status.content) %>
+              </div>
+              <div class="item-actions">
+                <span class="action-like"><a href="#">Curtir</a></span><span class="action-comment"><a href="#">Comentar</a></span><span class="count-likes"><a href="#">2</a></span><span class="count-comments"><a href="#">0</a></span><span class="timestamp">20 de Setembro</span>
+              </div>
+            </div>
+          </div>
+        </li>
+		<% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
